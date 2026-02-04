@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Be My Valentine ❤️</title>
+
     <style>
         body {
             height: 100vh;
@@ -16,36 +17,40 @@
 
         .card {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
+            padding: 55px;
+            border-radius: 24px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            width: 480px;
+            max-width: 92%;
         }
 
         h1 {
             color: #ff3366;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            font-size: 28px;
         }
 
         .buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         button {
             border: none;
-            padding: 15px 30px;
+            padding: 16px 34px;
             font-size: 18px;
-            border-radius: 12px;
+            border-radius: 14px;
             cursor: pointer;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         #yesBtn {
             background-color: #ff3366;
             color: white;
-            font-size: 18px;
         }
 
         #noBtn {
@@ -56,18 +61,18 @@
         .message {
             font-size: 22px;
             color: #ff3366;
-            margin-top: 20px;
+            margin-top: 25px;
         }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <h1>Will you be my Valentine? 💘</h1>
+    <h1>Will you be my Valentine? Ashuu💘</h1>
 
     <div class="buttons">
         <button id="yesBtn" onclick="sayYes()">Yes ❤️</button>
-        <button id="noBtn" onclick="growYes()">No 💔</button>
+        <button id="noBtn" onclick="handleNo()">No 💔</button>
     </div>
 
     <div class="message" id="message"></div>
@@ -75,18 +80,43 @@
 
 <script>
     let yesSize = 18;
+    let noClicks = 0;
 
-    function growYes() {
+    const noTexts = [
+        "No 💔",
+        "Are you sure?",
+        "Think again",
+        "Please?",
+        "Don’t break my heart",
+        "Still no?",
+        "You’re testing me",
+        "Last chance",
+        "Okay… really?"
+    ];
+
+    function handleNo() {
+        noClicks++;
+
+        // Grow YES button
         yesSize += 8;
         const yesBtn = document.getElementById("yesBtn");
         yesBtn.style.fontSize = yesSize + "px";
-        yesBtn.style.padding = (15 + yesSize / 4) + "px " + (30 + yesSize / 2) + "px";
+        yesBtn.style.padding =
+            (16 + yesSize / 4) + "px " + (34 + yesSize / 2) + "px";
+
+        // Change NO button text
+        const noBtn = document.getElementById("noBtn");
+        if (noClicks < noTexts.length) {
+            noBtn.textContent = noTexts[noClicks];
+        } else {
+            noBtn.textContent = "Just say YES ❤️";
+        }
     }
 
     function sayYes() {
         document.querySelector(".card").innerHTML = `
             <h1>Yaaayyy!!! 💖💖💖</h1>
-            <p class="message">You just made my Valentine’s Day special 😍</p>
+            <p class="message">You just made Day special Thanks Kalu 😍</p>
         `;
     }
 </script>
