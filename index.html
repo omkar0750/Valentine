@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Be My Valentine ❤️</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #ff3366;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn {
+            background-color: #ff3366;
+            color: white;
+            font-size: 18px;
+        }
+
+        #noBtn {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .message {
+            font-size: 22px;
+            color: #ff3366;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Will you be my Valentine? 💘</h1>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="sayYes()">Yes ❤️</button>
+        <button id="noBtn" onclick="growYes()">No 💔</button>
+    </div>
+
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+    let yesSize = 18;
+
+    function growYes() {
+        yesSize += 8;
+        const yesBtn = document.getElementById("yesBtn");
+        yesBtn.style.fontSize = yesSize + "px";
+        yesBtn.style.padding = (15 + yesSize / 4) + "px " + (30 + yesSize / 2) + "px";
+    }
+
+    function sayYes() {
+        document.querySelector(".card").innerHTML = `
+            <h1>Yaaayyy!!! 💖💖💖</h1>
+            <p class="message">You just made my Valentine’s Day special 😍</p>
+        `;
+    }
+</script>
+
+</body>
+</html>
