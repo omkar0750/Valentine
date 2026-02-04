@@ -25,6 +25,11 @@
             max-width: 92%;
         }
 
+        .top-image {
+            width: 160px;
+            margin-bottom: 20px;
+        }
+
         h1 {
             color: #ff3366;
             margin-bottom: 40px;
@@ -68,7 +73,11 @@
 <body>
 
 <div class="card">
-    <h1>Will you be my Valentine? Ashuu💘</h1>
+
+    <!-- Image at the top -->
+    <img class="top-image" src="valentine.png" alt="Valentine Image">
+
+    <h1>Will you be my Valentine? 💘</h1>
 
     <div class="buttons">
         <button id="yesBtn" onclick="sayYes()">Yes ❤️</button>
@@ -97,14 +106,12 @@
     function handleNo() {
         noClicks++;
 
-        // Grow YES button
         yesSize += 8;
         const yesBtn = document.getElementById("yesBtn");
         yesBtn.style.fontSize = yesSize + "px";
         yesBtn.style.padding =
             (16 + yesSize / 4) + "px " + (34 + yesSize / 2) + "px";
 
-        // Change NO button text
         const noBtn = document.getElementById("noBtn");
         if (noClicks < noTexts.length) {
             noBtn.textContent = noTexts[noClicks];
@@ -115,8 +122,9 @@
 
     function sayYes() {
         document.querySelector(".card").innerHTML = `
+            <img class="top-image" src="valentine.png" alt="Valentine Image">
             <h1>Yaaayyy!!! 💖💖💖</h1>
-            <p class="message">You just made Day special Thanks Kalu 😍</p>
+            <p class="message">You just made my Valentine’s Day special 😍</p>
         `;
     }
 </script>
